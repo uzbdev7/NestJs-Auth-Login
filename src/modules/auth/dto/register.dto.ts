@@ -2,9 +2,11 @@ import {
   IsString,
   IsNotEmpty,
   IsInt,
+  IsEnum,
   Min,
   IsMobilePhone,
 } from 'class-validator';
+import { UserRole } from 'src/type/user.role';
 
 export class RegisterDto {
   @IsString()
@@ -22,4 +24,7 @@ export class RegisterDto {
   @IsString()
   @IsNotEmpty()
   password: string;
+
+  @IsEnum(UserRole)
+  role: UserRole;
 }
